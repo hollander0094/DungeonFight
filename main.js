@@ -410,8 +410,8 @@ window.addEventListener('load', function() {
             this.player.currentState.enter();
             this.movables = [this.background, this.foreground, ...boundaries, ...this.doorBoundaries,
                             ...this.enemies, ...this.doors, this.doorSwitch, ...this.healthPotions,  ...this.attackPotions, ...this.speedPotions];
-            this.renderables = [this.background, ...this.enemies, ...this.doors, ...this.healthPotions, ...this.attackPotions, ...this.speedPotions, 
-                                this.player, this.foreground];
+            this.renderables = [this.background, ...this.enemies, ...this.doors,  this.doorSwitch, 
+                            ...this.healthPotions, ...this.attackPotions, ...this.speedPotions, this.player, this.foreground];
             this.moving = true;
             this.gameOver = false;
             this.debug = false;
@@ -428,8 +428,8 @@ window.addEventListener('load', function() {
                     this.player.currentState.enter();
                     this.gameSetup = false;
                     this.moving = true;
-                    this.renderables = [this.background, ...this.enemies, ...this.doors, ...this.healthPotions, ...this.attackPotions, ...this.speedPotions, 
-                        this.player, this.foreground];
+                    this.renderables = [this.background, ...this.enemies, ...this.doors,  this.doorSwitch, 
+                        ...this.healthPotions, ...this.attackPotions, ...this.speedPotions, this.player, this.foreground];
                 }
             } else {
                 this.moving = true;
@@ -665,8 +665,8 @@ window.addEventListener('load', function() {
                     this.healthPotions.splice(index, 1);
                     this.player.lives = [new Life(this, 'full'), new Life(this, 'full'), new Life(this, 'full'), 
                                         new Life(this, 'full'), new Life(this, 'full')];
-                    this.renderables = [this.background, ...this.enemies, ...this.doors, ...this.healthPotions, ...this.attackPotions, ...this.speedPotions, 
-                        this.player, this.foreground];
+                                        this.renderables = [this.background, ...this.enemies, ...this.doors,  this.doorSwitch, 
+                                            ...this.healthPotions, ...this.attackPotions, ...this.speedPotions, this.player, this.foreground];
                 }
             });
             this.attackPotions.forEach((attackPotion, index) => {
@@ -678,8 +678,8 @@ window.addEventListener('load', function() {
                     console.log('Obtained an attack potion!');
                     this.attackPotions.splice(index, 1);
                     this.player.weapon.damage += 5;
-                    this.renderables = [this.background, ...this.enemies, ...this.doors, ...this.healthPotions, ...this.attackPotions, ...this.speedPotions, 
-                        this.player, this.foreground];
+                    this.renderables = [this.background, ...this.enemies, ...this.doors,  this.doorSwitch, 
+                        ...this.healthPotions, ...this.attackPotions, ...this.speedPotions, this.player, this.foreground];
                 }
             });
             this.speedPotions.forEach((speedPotion, index) => {
@@ -696,8 +696,8 @@ window.addEventListener('load', function() {
                             movable.layer1.speed += 0.3;
                         };
                     })
-                    this.renderables = [this.background, ...this.enemies, ...this.doors, ...this.healthPotions, ...this.attackPotions, ...this.speedPotions, 
-                        this.player, this.foreground];
+                    this.renderables = [this.background, ...this.enemies, ...this.doors,  this.doorSwitch, 
+                        ...this.healthPotions, ...this.attackPotions, ...this.speedPotions, this.player, this.foreground];
                 }
             });
             if (this.moving) {
